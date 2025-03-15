@@ -1,0 +1,319 @@
+*,
+*::before, 
+*::after{
+/* 1️⃣Empêche le padding et border d'affecter la largeur/hauteur */    
+    box-sizing: border-box;
+}            
+/* 2️⃣ Supprimer les marges et paddings par défaut */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+/* 3️⃣ Supprimer la décoration des listes et liens */
+ul, ol {
+    list-style: none; /* Supprime les puces des listes */
+}
+
+a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: inherit; /* Les liens prennent la couleur du texte parent */
+}
+
+/* 4️⃣ Assurer une typographie cohérente */
+body {
+    font-family: 'poppins', Arial, sans-serif; /* Change selon le projet */
+    font-size: 16px; /* Base cohérente */
+    line-height: 1.5; /* Espacement optimal entre les lignes */
+}
+
+/* 5️⃣ Éviter les débordements sur petits écrans */
+html, body {
+    width: 100%; 
+    overflow-x: hidden;/* Empêche les barres de scroll horizontales */
+}
+
+/* 6️⃣ Améliorer l'accessibilité et le focus */
+button, input, textarea {
+    font-family: inherit; /* Garde la même police que le reste du site */
+}
+:focus {
+    outline: none; /* Supprime l’outline par défaut (attention à ajouter un style focus personnalisé) */
+}
+/* 
+🔧📌 ADAPTATIONS POSSIBLES (5% des cas) 🔧📌
+
+1️⃣ FONTES → Si le projet a une charte stricte, remplace `font-family: Arial, sans-serif;` 
+   Ex: `font-family: 'Roboto', sans-serif;`
+
+2️⃣ FOCUS → Pour l'accessibilité, personnalise le `outline` au lieu de le supprimer.
+   Ex: `:focus { outline: 2px solid #ff385c; border-radius: 5px; }`
+
+3️⃣ SCROLL HORIZONTAL → Si le site utilise des carrousels ou tableaux larges, 
+   supprime `overflow-x: hidden;` de `html, body`.
+
+4️⃣ LISTES → Si tu veux garder des puces sur certains `ul`, applique `list-style: disc;` 
+   uniquement aux listes concernées.
+
+5️⃣ FORMULAIRES → Pour styliser les inputs et boutons de manière homogène,
+   ajuste `button, input, textarea` selon le design du projet.
+
+💡 👉 Ces modifications ne sont à faire que si nécessaires, sinon la base couvre 95% des besoins !
+
+ PATTERN MAIL: pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,15}"
+*/
+/* 
+███████████████████████████████████████████████████████████████████████
+            🎯🎯🎯 FIN DU COMMENTAIRE - REPÈRE VISUEL 🎯🎯🎯
+███████████████████████████████████████████████████████████████████████
+███████████████████████████████████████████████████████████████████████
+███████████████████████████████████████████████████████████████████████
+███████████████████████████████████████████████████████████████████████
+*/
+
+/*  body: min-height:100vh pour la plupart des cas 
+    sinon height: 100vh  */
+
+body{
+    padding-top: 20px;
+    height: 100vh;
+    width: 100%;
+    background-color: #1E1E1E;
+    background-image: url(images/sky-2799118_1920.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+    background: rgba( 255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+form:focus-within{
+    animation: zoom 0.4s ease-in-out;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.548);
+    transition: box-shadow 0.4s ease-in-out;
+}
+@keyframes zoom{
+    0%, 100%{transform: scale(1);}
+    50%{transform: scale(1.02);}
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-end;
+    max-width: 455px;
+    padding: 30px 10px 30px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.message{
+    align-items: center;
+}
+
+.contexta{
+    display: flex;
+    flex-direction: column;
+}
+
+input, select{
+    width: 280px;
+    height: 26px;
+}
+
+textarea{
+    width: 400px;
+    height: 100px;
+}
+
+input, textarea, select{
+    border: transparent;
+    border-radius: 12px;
+    padding-left: 10px;
+    transition: border 0.3s ease-in-out;
+}
+
+input:focus, textarea:focus, select:focus{
+    border: 3px solid #0671CE;
+    transition: border 0.2s ease-in-out;
+}
+
+input:valid, textarea:valid, select:valid{
+    background-color: rgb(243, 255, 243);
+    transition: all .4s ease-in-out;
+}
+
+input:invalid, textarea:invalid, select:invalid{
+    background-color: rgb(255, 232, 232);
+    transition: all .4s ease-in-out;
+}
+
+#choose{
+    text-align: center;
+}
+
+.result{
+    height: 20px;
+    width: 180px;
+    font-size: 0.6rem;
+    text-align: center;
+    color: #1E1E1E;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.valid{
+    background: rgb(223, 252, 223);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-in-out;
+}
+
+.invalid{
+    background: rgb(252, 195, 195);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-in-out;
+}
+
+.contresult{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+ 
+}
+
+input:valid ~ .contresult .valid{
+    opacity: 1;
+    visibility: visible;
+    transition: all .4s ease-in-out;
+}
+
+input:invalid ~ .contresult .invalid{
+    opacity: 1;
+    visibility: visible;
+    transition: all .4s ease-in-out;
+}
+
+
+button {
+    height: 2.8em;
+    width: 9em;
+    background: transparent;
+    -webkit-animation: jello-horizontal 0.9s both;
+    animation: jello-horizontal 0.9s both;
+    border: 2px solid #0675D1;
+    outline: none;
+    color: #0675D1;
+    cursor: pointer;
+    font-size: 17px;
+  }
+  
+  button:hover {
+    background: #0675D1;
+    color: #ffffff;
+    animation: squeeze3124 0.9s both;
+  }
+  
+  @keyframes squeeze3124 {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  
+    30% {
+      -webkit-transform: scale3d(1.25, 0.75, 1);
+      transform: scale3d(1.25, 0.75, 1);
+    }
+  
+    40% {
+      -webkit-transform: scale3d(0.75, 1.25, 1);
+      transform: scale3d(0.75, 1.25, 1);
+    }
+  
+    50% {
+      -webkit-transform: scale3d(1.15, 0.85, 1);
+      transform: scale3d(1.15, 0.85, 1);
+    }
+  
+    65% {
+      -webkit-transform: scale3d(0.95, 1.05, 1);
+      transform: scale3d(0.95, 1.05, 1);
+    }
+  
+    75% {
+      -webkit-transform: scale3d(1.05, 0.95, 1);
+      transform: scale3d(1.05, 0.95, 1);
+    }
+  
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+
+
+/* -------------media query --------------------------------------- */
+
+
+@media screen and (max-width:600px){
+    form{
+        font-size: 0.75rem;
+    }
+
+    input, select{
+        width: 190px;
+        height: 24px;
+    }
+    
+    textarea{
+        width: 240px;
+        height: 120px;
+    }
+
+    .result{
+        height: 18px;
+        width: 80px;
+        font-size: 0.5rem;
+        text-align: center;
+        color: #1E1E1E;
+        border-radius: 20px;
+    }
+
+    .cont{
+        max-width: 300px;
+    }
+
+}
